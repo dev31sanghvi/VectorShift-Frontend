@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BaseNode } from "./BaseNode";
+import BaseNode from "./BaseNode";
 import { Position } from "reactflow";
 
 export const MathNode = ({ id, data }) => {

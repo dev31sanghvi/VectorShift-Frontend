@@ -13,7 +13,7 @@ const BaseNode = ({ id, data, config, children, style = {} }) => {
         <Handle
           key={index}
           type={handle.type}
-          position={handle.Position}
+          position={handle.position}
           id={`${id}-${handle.id}`}
           style={handle.style || {}}
         />

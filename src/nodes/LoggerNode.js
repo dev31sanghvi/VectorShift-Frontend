@@ -1,21 +1,27 @@
-import { BaseNode } from './BaseNode';
-import { Position } from 'reactflow';
-// this node will log the data to the console 
+import { useState } from "react";
+import BaseNode from "./BaseNode";
+import { Position } from "reactflow";
+
 export const LoggerNode = ({ id, data }) => {
-  const logData = () => {
-    console.log('Logged Data:', data?.message || 'No message provided.');
-  };
+  const [message, setMessage] = useState(data?.message || "Log this message");
 
   return (
     <BaseNode
       id={id}
       data={data}
       config={{
-        label: 'Logger Node',
-        handles: [{ type: 'target', position: Position.Left, id: 'log' }],
+        label: "Logger Node",
+        handles: [{ type: "source", position: Position.Right, id: "log" }],
       }}
     >
-      <button onClick={logData}>Log Data</button>
+      <label>
+        Message:
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+      </label>
     </BaseNode>
   );
 };
